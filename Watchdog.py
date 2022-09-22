@@ -41,13 +41,13 @@ default_config = {
 	},
 	'commands': {
 		'compile': {
-			'dme': 'baystation12.dme',
+			'dme': 'vgstation13.dme',
 			'map-voting': {
-				'match': 'maps[\\/]([a-z]+).dmm',
+				'match': '^maps[\\/]([a-z\-]+).dm',
 				'maps': {
-					'Box Station': 'maps\tgstation.dmm',
-					'Metaclub':    'maps\metaclub.dmm',
-					'Deficiency':  'maps\defficiency.dmm',
+					'Box Station': 'maps\tgstation.dm',
+					'Metaclub':    'maps\metaclub.dm',
+					'Deficiency':  'maps\defficiency.dm',
 				}
 			}
 		},
@@ -324,7 +324,7 @@ def Compile(serverState, no_restart=False):
 				waiting_for_next_commit = True
 				return
 			elif map_outdir is not None:
-				output_file = os.path.join(map_outdir, config.get('compile.dme', 'baystation12.dmb'))
+				output_file = os.path.join(map_outdir, config.get('compile.dme', 'vgstation13.dmb'))
 				log.info('Copying {} to {}...'.format(getDMB(), output_file))
 				shutil.move(getDMB(), output_file)
 				if base_dmb is None:
@@ -525,7 +525,7 @@ def findDD():
 				continue
 			
 def getDMB(ignore_mapvoting=False):
-	dme_filename = config.get('compile.dme', 'baystation12.dmb')
+	dme_filename = config.get('compile.dme', 'vgstation13.dmb')
 	
 	# if config.get('commands.compile.map-voting.match', None) is not None and not ignore_mapvoting:
 	# 	filename, ext = os.path.splitext(dme_filename)
