@@ -16,16 +16,16 @@ commands:
   # Compile parameters
   compile:
     # DME to compile
-    dme: baystation12.dme
+    dme: vgstation13.dme
     # Map Voting
     map-voting:
       # Line to find in the DME (regular expression)
-      match: 'maps[\\/]([a-z]+).dmm'
+      match: '^maps[\\/]([a-z\-]+).dm'
       # List of Map Name => what to replace the regex above with.
       maps:
-        'Box Station': 'maps\\tgstation.dmm'
-        'Metaclub':    'maps\\metaclub.dmm'
-        'Deficiency':  'maps\\defficiency.dmm'
+        'Box Station': 'maps\\tgstation.dm'
+        'Metaclub':    'maps\\metaclub.dm'
+        'Deficiency':  'maps\\defficiency.dm'
 git:
   # The actual game code repo
   game:
